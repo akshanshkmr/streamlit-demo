@@ -5,7 +5,7 @@ def app(data):
     st.write('### Getting Started')
     with st.echo():
         from st_card import st_card
-        cols = st.columns([.333,.333,.333])
+        cols = st.columns(3)
         with cols[0]:
             st_card('Orders', value=1200, delta=-45, delta_description='since last month')
         with cols[1]:
