@@ -1,10 +1,13 @@
 import streamlit as st
 from   src.utils.MultiPage import MultiPage
-from   src       import (link_button_demo, 
+from   src       import (link_button_demo,
+                        st_card_demo,
                         st_radial_demo,
-                        st_card_demo)
+                        streamlit_playground,
+                        yt_adfree)
 
 def about_dev():
+    st.set_page_config(layout='wide',initial_sidebar_state='collapsed')
     st.sidebar.title("About the developer")
     st.sidebar.markdown("""
     #### Hi there, I am Akshansh Kumar <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
@@ -20,6 +23,8 @@ if __name__ == "__main__":
     app.add_app("link_button",link_button_demo.app)
     app.add_app("st_radial",st_radial_demo.app)
     app.add_app("st_card",st_card_demo.app)
+    app.add_app("playground",streamlit_playground.app)
+    app.add_app("yt_ad_free",yt_adfree.app)
     app.run()
 
 
