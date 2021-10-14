@@ -1,4 +1,4 @@
 link-button
 st-radial
 st-card
-st-ace
+streamlit-ace
