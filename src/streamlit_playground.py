@@ -11,13 +11,33 @@ def security_check(code):
 
 def app(data):
     st.title('Streamlit Playground')
-    with st.form(key='editor'):
-        code = st_ace(
-            theme='dracula',
-            auto_update=True,
-            language='python',
-            height=500,
-            value='# learn streamlit on the fly\n')
-        if st.form_submit_button('Run'):
-            if security_check(code):
-                exec(code)
+    if 'code' in st.session_state.keys():
+        code = st.session_state['code']
+        if st.button('Back to Editor (Double Click)'):
+            st.session_state['code_bk'] = code
+            st.session_state.pop('code')
+        if security_check(code):
+            st.write('Running Code:')
+            st.code(code)
+            st.write('Output:')
+            exec(code)
+    else:
+        with st.form(key='editor'):
+            if 'code_bk' in st.session_state.keys():
+                code = st_ace(
+                    theme='dracula',
+                    auto_update=True,
+                    language='python',
+                    height=500,
+                    font_size=16,
+                    value=st.session_state['code_bk'])
+            else:
+                code = st_ace(
+                    theme='dracula',
+                    auto_update=True,
+                    language='python',
+                    height=500,
+                    font_size=16)
+            if st.form_submit_button('Run (Double Click)'):
+                if security_check(code):
+                    st.session_state['code'] = code
