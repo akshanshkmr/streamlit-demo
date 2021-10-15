@@ -6,7 +6,7 @@ from   src       import (link_button_demo,
                         yt_adfree)
 
 def about_dev():
-    st.set_page_config(layout='wide',initial_sidebar_state='collapsed')
+    st.set_page_config(layout='wide')
     st.sidebar.title("About the developer")
     st.sidebar.markdown("""
     #### Hi there, I am Akshansh Kumar <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
