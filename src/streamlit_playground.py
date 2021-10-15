@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit_ace import st_ace
-import pyautogui
+import pyautogui, os
+
+os.environ['DISPLAY'] = ':0'
 
 def security_check(code):
     import re
