@@ -2,4 +2,5 @@ link-button
 st-radial
 st-card
 streamlit-ace
-scipy
+plotly
+altair
