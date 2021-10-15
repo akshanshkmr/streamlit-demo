@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_ace import st_ace
+import pyautogui
 
 def security_check(code):
     import re
@@ -13,9 +14,10 @@ def app(data):
     st.title('Streamlit Playground')
     if 'code' in st.session_state.keys():
         code = st.session_state['code']
-        if st.button('Back to Editor (Double Click)'):
+        if st.button('Back to Editor 📝'):
             st.session_state['code_bk'] = code
             st.session_state.pop('code')
+            pyautogui.hotkey('enter')
         if security_check(code):
             st.write('Running Code:')
             st.code(code)
@@ -37,7 +39,8 @@ def app(data):
                     auto_update=True,
                     language='python',
                     height=500,
-                    font_size=16)
-            if st.form_submit_button('Run (Double Click)'):
+                    font_size=18)
+            if st.form_submit_button('Run 🏃‍♂️'):
                 if security_check(code):
                     st.session_state['code'] = code
+                    pyautogui.hotkey('enter')
