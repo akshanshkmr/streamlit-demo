@@ -1,9 +1,6 @@
 import streamlit as st
 from streamlit_ace import st_ace
-import os
-
-os.environ['DISPLAY'] = ':0'
-import pyautogui
+from keyboard import press
 
 def security_check(code):
     import re
@@ -20,7 +17,7 @@ def app(data):
         if st.button('Back to Editor 📝'):
             st.session_state['code_bk'] = code
             st.session_state.pop('code')
-            pyautogui.hotkey('enter')
+            press('enter')
         if security_check(code):
             st.write('Running Code:')
             st.code(code)
@@ -46,4 +43,4 @@ def app(data):
             if st.form_submit_button('Run 🏃‍♂️'):
                 if security_check(code):
                     st.session_state['code'] = code
-                    pyautogui.hotkey('enter')
+                    press('enter')
