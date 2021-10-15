@@ -2,5 +2,4 @@ link-button
 st-radial
 st-card
 streamlit-ace
-pynput
 scipy
