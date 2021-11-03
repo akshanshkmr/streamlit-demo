@@ -3,6 +3,7 @@ from   src.utils.MultiPage import MultiPage
 from   src       import (link_button_demo,
                         st_card_demo,
                         st_radial_demo,
+                        st_apex_charts_demo,
                         yt_adfree)
 
 def about_dev():
@@ -22,6 +23,7 @@ if __name__ == "__main__":
     app.add_app("link_button",link_button_demo.app)
     app.add_app("st_radial",st_radial_demo.app)
     app.add_app("st_card",st_card_demo.app)
+    app.add_app("streamlit_apex_charts",st_apex_charts_demo.app)
     app.add_app("yt_ad_free",yt_adfree.app)
     app.run()
 
